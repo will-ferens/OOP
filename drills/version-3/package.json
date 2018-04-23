@@ -1,0 +1,14 @@
+{
+  "name": "version-3",
+  "version": "1.0.0",
+  "description": "A drill where you will model state and behavior of a file system",
+  "main": "directory.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "CJ, Dan and Kim",
+  "license": "ISC"
+}

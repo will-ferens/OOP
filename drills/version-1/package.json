@@ -1,0 +1,12 @@
+{
+  "name": "cars",
+  "version": "1.0.0",
+  "description": "Model a car using OOP",
+  "main": "car.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "Jeff Dean, Kim Schlesinger",
+  "license": "ISC"
+}

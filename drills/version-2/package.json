@@ -1,0 +1,15 @@
+{
+    "name": "card-deck",
+    "version": "1.0.0",
+    "description": "",
+    "main": "deck.js",
+    "scripts": {
+        "test": "mocha"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "chai": "^4.1.2"
+    }
+}
