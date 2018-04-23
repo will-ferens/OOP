@@ -1,38 +1,44 @@
 // Your code here
-class File {
-    constructor(name, content) {
-        this.name = name 
-        this.content = content
-    }
-}
 class Directory {
     constructor(name) {
         this.name = name
-        this.files = []
-        this.listOfFiles = []
+        this.files = {}
     }
-    ls() {
-        this.listOfFiles.sort((a, b) => {
-            if(a < b) return -1
-            if(a > b) return 1
-            return 0
-        })
-        return this.listOfFiles
-    }
-    write(name, content) {
-        let file = new File(name, content)
-        this.listOfFiles.push(file.name)
-        this.files.push(file)
-    }
-    ls_la(name) {
-    if(name == null) return this.files
-    if(name !== null) {
-        return this.files.filter(current => {
-            return current.name == name
-            }).map(current => {
-            return `${current.name} - ${current.content.length}`
-            })
+    
+    write(filename, data) {
+        if(this.files[filename]){
+            this.files[filename].data = data
+        } else {
+        this.files[filename] = {filename, data}
         }
+    }
+
+    ls() {
+        return Object.keys(this.files).sort()
+    }
+
+    ls_la() {
+        return Object.keys(this.files).reverse()
+        .map(filename => {
+            return `${filename} - ${this.files[filename].data.length}`
+        })
+    }
+
+    cat(filename) {
+        return this.files[filename].data
+    }
+
+    mv(fromFile, toFile) {
+        this.files[toFile] = this.files[fromFile]
+        delete this.files[fromFile]
+    }
+
+    cp(fromFile, toFile) {
+        this.files[toFile] = {...this.files[fromFile]}
+    }
+
+    ln_s(fromFile, toFile) {
+        this.files[toFile] = this.files[fromFile]
     }
 }
 module.exports = Directory
